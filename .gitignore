@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+dist/
+*.db
+uploads/*
+!uploads/.gitkeep
+cloudflared.exe
