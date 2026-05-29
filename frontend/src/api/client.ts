@@ -13,7 +13,10 @@ declare global {
   }
 }
 
-const BASE_URL = '/api'
+// In production BACKEND_URL is injected via env; locally Vite proxies /api → localhost:8000
+const BASE_URL = (import.meta as unknown as { env: Record<string, string> }).env.VITE_BACKEND_URL
+  ? (import.meta as unknown as { env: Record<string, string> }).env.VITE_BACKEND_URL
+  : '/api'
 
 function getInitData(): string {
   return window.Telegram?.WebApp?.initData || ''
